@@ -13,6 +13,17 @@ namespace NicoNico.Net.Entities.Video
         public int TotalCount { get; set; }
 
         public List<VideoInfo> VideoInfoList { get; set; }
+
+        public List<string> SherlockTags { get; set; }
+
+        public List<SherlockVideo> SherlockVideos { get; set; }
+    }
+
+    public class SherlockVideo
+    {
+        public string Id { get; set; }
+
+        public string Tag { get; set; }
     }
 
     public class VideoInfo
@@ -27,6 +38,8 @@ namespace NicoNico.Net.Entities.Video
     public class Video
     {
         public string Id { get; set; }
+
+        public string Tag { get; set; }
 
         public byte Deleted { get; set; }
 
@@ -44,7 +57,7 @@ namespace NicoNico.Net.Entities.Video
 
         public int MyListCounter { get; set; }
 
-        public byte OptionFlagCommunity { get; set; }
+        public int OptionFlagCommunity { get; set; }
 
         public byte OptionFlagNicowari { get; set; }
 

@@ -58,8 +58,8 @@ namespace NicoNico.Net.ConsoleTest
             //var genreManager = new GenreManager(cookieContainer, session.Session);
             //var test2 = await genreManager.GetGenreListAsync();
 
-            var videoManager = new VideoManager(cookieContainer, session.Session);
-            var test2 = await videoManager.GetDefListAsync(0, 10);
+            //var videoManager = new VideoManager(cookieContainer, session.Session);
+            //var test2 = await videoManager.GetVideoSherlockAsync();
 
             var userManager = new UserManager(cookieContainer, session.Session);
             var user = await userManager.GetCurrentUserInfoAsync();

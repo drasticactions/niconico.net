@@ -49,6 +49,8 @@ namespace NicoNico.Net.Tools
 
         public const string DefVideoList = Base + "/nicoapi/v1/deflist.list?dummy=1434382205&from={0}&limit={1}";
 
+        public const string VideoSherlock = Base + "/nicoapi/v1/video.sherlock?cmd={0}&dummy=1434382205&limit={1}";
+
         #endregion
     }
 }

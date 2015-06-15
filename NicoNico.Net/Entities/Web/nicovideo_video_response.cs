@@ -563,5 +563,78 @@ namespace NicoNico.Net.Entities.Web
         }
     }
 
+    public partial class nicovideo_video_response
+    {
+
+        private string[] sherlock_tagField;
+
+        private nicovideo_video_responseVideo[] sherlock_videoField;
+
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("tag", IsNullable = false)]
+        public string[] sherlock_tag
+        {
+            get
+            {
+                return this.sherlock_tagField;
+            }
+            set
+            {
+                this.sherlock_tagField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("video", IsNullable = false)]
+        public nicovideo_video_responseVideo[] sherlock_video
+        {
+            get
+            {
+                return this.sherlock_videoField;
+            }
+            set
+            {
+                this.sherlock_videoField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class nicovideo_video_responseVideo
+    {
+
+        private string idField;
+
+        private string tagField;
+
+        /// <remarks/>
+        public string id
+        {
+            get
+            {
+                return this.idField;
+            }
+            set
+            {
+                this.idField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string tag
+        {
+            get
+            {
+                return this.tagField;
+            }
+            set
+            {
+                this.tagField = value;
+            }
+        }
+    }
+
 
 }

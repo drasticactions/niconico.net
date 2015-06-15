@@ -15,5 +15,7 @@ namespace NicoNico.Net.Interfaces
             string type = "fav");
 
         Task<Videos> GetDefListAsync(int from, int limit = 1);
+
+        Task<Videos> GetVideoSherlockAsync(string cmd = "recommend", int limit = 20);
     }
 }
