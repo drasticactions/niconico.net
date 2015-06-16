@@ -186,5 +186,166 @@ namespace NicoNico.Net.Managers
             }
             return videos;
         }
+
+        public async Task<Videos> GetVideoInfoAsync(string videoId)
+        {
+            var result = await _webManager.GetData(new Uri(string.Format(EndPoints.VideoInfo, videoId)));
+            var xmlUserObject = result.ResultXml.ParseXml<nicovideo_video_response>();
+            var videos = new Videos()
+            {
+                Count = xmlUserObject.count,
+                VideoInfoList = new List<VideoInfo>(),
+                Tags = new List<TagInfo>()
+            };
+
+            foreach (var item in xmlUserObject.tags)
+            {
+                videos.Tags.Add(new TagInfo()
+                {
+                    Area = item.area,
+                    Tag = item.tag
+                });
+            }
+
+            foreach (var item in xmlUserObject.video_info)
+            {
+
+                videos.VideoInfoList.Add(new VideoInfo()
+                {
+                    Video = new Video()
+                    {
+                        Deleted = item.video.deleted,
+                        FirstRetrieve = item.video.first_retrieve,
+                        Height = item.video.height,
+                        Id = item.video.id,
+                        LargeThumbnail = item.video.options.large_thumbnail,
+                        LengthInSeconds = item.video.length_in_seconds,
+                        Mobile = item.video.options.mobile,
+                        MyListCounter = item.video.mylist_counter,
+                        OptionFlagCommunity = item.video.option_flag_community,
+                        OptionFlagMiddleThumbnail = item.video.option_flag_middle_thumbnail,
+                        OptionFlagNicowari = item.video.option_flag_nicowari,
+                        ViewCounter = item.video.view_counter,
+                        VitaPlayable = item.video.vita_playable,
+                        PpvVideo = item.video.ppv_video,
+                        ProviderType = item.video.provider_type,
+                        Title = item.video.title,
+                        UploadTime = item.video.upload_time,
+                        ThumbnailUrl = item.video.thumbnail_url,
+                        Width = item.video.width,
+                        Sun = item.video.options.sun
+                    },
+                    Thread = new Thread()
+                    {
+                        Id = item.thread.id,
+                        NumRes = item.thread.num_res,
+                        Summary = item.thread.summary
+                    }
+                });
+            }
+
+            return videos;
+        }
+
+        public async Task<Videos> GetVideoRelationAsync(string videoId, int @from = 0, int limit = 100, string order = "d", string sort = "v")
+        {
+            var result = await _webManager.GetData(new Uri(string.Format(EndPoints.VideoRelation, from, limit, order, sort, videoId)));
+            var xmlUserObject = result.ResultXml.ParseXml<nicovideo_video_response>();
+            var videos = new Videos()
+            {
+                Count = xmlUserObject.count,
+                VideoInfoList = new List<VideoInfo>(),
+                TotalCount = xmlUserObject.total_count
+            };
+
+            foreach (var item in xmlUserObject.video_info)
+            {
+
+                videos.VideoInfoList.Add(new VideoInfo()
+                {
+                    Video = new Video()
+                    {
+                        Deleted = item.video.deleted,
+                        FirstRetrieve = item.video.first_retrieve,
+                        Height = item.video.height,
+                        Id = item.video.id,
+                        LargeThumbnail = item.video.options.large_thumbnail,
+                        LengthInSeconds = item.video.length_in_seconds,
+                        Mobile = item.video.options.mobile,
+                        MyListCounter = item.video.mylist_counter,
+                        OptionFlagCommunity = item.video.option_flag_community,
+                        OptionFlagMiddleThumbnail = item.video.option_flag_middle_thumbnail,
+                        OptionFlagNicowari = item.video.option_flag_nicowari,
+                        ViewCounter = item.video.view_counter,
+                        VitaPlayable = item.video.vita_playable,
+                        PpvVideo = item.video.ppv_video,
+                        ProviderType = item.video.provider_type,
+                        Title = item.video.title,
+                        UploadTime = item.video.upload_time,
+                        ThumbnailUrl = item.video.thumbnail_url,
+                        Width = item.video.width,
+                        Sun = item.video.options.sun
+                    },
+                    Thread = new Thread()
+                    {
+                        Id = item.thread.id,
+                        NumRes = item.thread.num_res,
+                        Summary = item.thread.summary
+                    }
+                });
+            }
+
+            return videos;
+        }
+
+        public async Task<Videos> GetVideoArrayAsync(string[] videoIsArray)
+        {
+            var result = await _webManager.GetData(new Uri(string.Format(EndPoints.VideoArray, string.Join(",", videoIsArray))));
+            var xmlUserObject = result.ResultXml.ParseXml<nicovideo_video_response>();
+            var videos = new Videos()
+            {
+                Count = xmlUserObject.count,
+                VideoInfoList = new List<VideoInfo>()
+            };
+
+            foreach (var item in xmlUserObject.video_info)
+            {
+
+                videos.VideoInfoList.Add(new VideoInfo()
+                {
+                    Video = new Video()
+                    {
+                        Deleted = item.video.deleted,
+                        FirstRetrieve = item.video.first_retrieve,
+                        Height = item.video.height,
+                        Id = item.video.id,
+                        LargeThumbnail = item.video.options.large_thumbnail,
+                        LengthInSeconds = item.video.length_in_seconds,
+                        Mobile = item.video.options.mobile,
+                        MyListCounter = item.video.mylist_counter,
+                        OptionFlagCommunity = item.video.option_flag_community,
+                        OptionFlagMiddleThumbnail = item.video.option_flag_middle_thumbnail,
+                        OptionFlagNicowari = item.video.option_flag_nicowari,
+                        ViewCounter = item.video.view_counter,
+                        VitaPlayable = item.video.vita_playable,
+                        PpvVideo = item.video.ppv_video,
+                        ProviderType = item.video.provider_type,
+                        Title = item.video.title,
+                        UploadTime = item.video.upload_time,
+                        ThumbnailUrl = item.video.thumbnail_url,
+                        Width = item.video.width,
+                        Sun = item.video.options.sun
+                    },
+                    Thread = new Thread()
+                    {
+                        Id = item.thread.id,
+                        NumRes = item.thread.num_res,
+                        Summary = item.thread.summary
+                    }
+                });
+            }
+
+            return videos;
+        }
     }
 }

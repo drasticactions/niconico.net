@@ -27,7 +27,7 @@ namespace NicoNico.Net.Managers
 
         public async Task<User> GetCurrentUserInfoAsync()
         {
-            var result = await _webManager.GetData(new Uri(EndPoints.UserInfo));
+            var result = await _webManager.GetData(new Uri(EndPoints.UserCurrentInfo));
             if (!result.IsSuccess)
             {
                 throw new Exception("Failed to Get User Info: " + result.ResultXml);

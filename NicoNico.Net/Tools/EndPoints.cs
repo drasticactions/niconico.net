@@ -28,7 +28,9 @@ namespace NicoNico.Net.Tools
 
         #region User
 
-        public const string UserInfo = Base + "/api/v1/user.info?dummy=1434371749";
+        public const string UserCurrentInfo = Base + "/api/v1/user.info?dummy=1434371749";
+
+        public const string UserInfo = Base + "/api/v1/user.info?dummy=1434463727&user_id={0}";
 
         public const string UserPremium = Base + "/api/v1/user.premium?dummy=1434371749";
 
@@ -39,6 +41,10 @@ namespace NicoNico.Net.Tools
         public const string GenreGroup = Base + "/nicoapi/v1/genre.list?dummy=1434379459&group={0}";
 
         public const string GenreList = Base + "/nicoapi/v1/genre.list?dummy=1434379459";
+
+        public const string GenreRecent =
+            Base +
+            "/nicoapi/v1/genre.recent?dummy=1434457736&from={0}&genre={1}&limit={2}";
 
         #endregion
 
@@ -51,6 +57,20 @@ namespace NicoNico.Net.Tools
 
         public const string VideoSherlock = Base + "/nicoapi/v1/video.sherlock?cmd={0}&dummy=1434382205&limit={1}";
 
+        public const string VideoInfo =
+            Base + "/nicoapi/v1/video.info?dummy=1434458035&v={0}";
+
+        public const string VideoRelation =
+            Base + "/nicoapi/v1/video.relation?dummy=1434458035&from={0}&limit={1}&order={2}&sort={3}&v={4}";
+
+        public const string VideoPlay = Base + "/nicoapi/v1/video.play?dummy=1434458036&v={0}";
+
+        public const string VideoArray = Base + "/nicoapi/v1/video.array?dummy=1434461473&v={0}";
+
         #endregion
+
+        public const string MyListGroup = Base + "/nicoapi/v1/mylistgroup.get?dummy=1434461475";
+
+        public const string ThumbInfo = "http://ext.nicovideo.jp/api/getthumbinfo/{0}";
     }
 }

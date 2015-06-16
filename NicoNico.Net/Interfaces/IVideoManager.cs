@@ -17,5 +17,13 @@ namespace NicoNico.Net.Interfaces
         Task<Videos> GetDefListAsync(int from, int limit = 1);
 
         Task<Videos> GetVideoSherlockAsync(string cmd = "recommend", int limit = 20);
+
+        Task<Videos> GetVideoInfoAsync(string videoId);
+
+        Task<Videos> GetVideoRelationAsync(string videoId, 
+            int from = 0, int limit = 100, string order = "d",
+            string sort = "v");
+
+        Task<Videos> GetVideoArrayAsync(string[] videoIsArray);
     }
 }

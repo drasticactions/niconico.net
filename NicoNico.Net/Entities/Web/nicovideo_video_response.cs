@@ -636,5 +636,362 @@ namespace NicoNico.Net.Entities.Web
         }
     }
 
+    public partial class nicovideo_video_response
+    {
+
+        private nicovideo_video_responseTag_info[] tagsField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("tag_info", IsNullable = false)]
+        public nicovideo_video_responseTag_info[] tags
+        {
+            get
+            {
+                return this.tagsField;
+            }
+            set
+            {
+                this.tagsField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class nicovideo_video_responseTag_info
+    {
+
+        private string tagField;
+
+        private string areaField;
+
+        /// <remarks/>
+        public string tag
+        {
+            get
+            {
+                return this.tagField;
+            }
+            set
+            {
+                this.tagField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string area
+        {
+            get
+            {
+                return this.areaField;
+            }
+            set
+            {
+                this.areaField = value;
+            }
+        }
+    }
+
+    public partial class nicovideo_video_response
+    {
+
+        private string typeField;
+
+        private byte enable_lowField;
+
+        private byte enable_midField;
+
+        private byte enable_orgField;
+
+        private byte commentableField;
+
+        private byte comment_typeField;
+
+        private byte video_priorityField;
+
+        private byte allow_rangeField;
+
+        private nicovideo_video_responseWatch watchField;
+
+        private nicovideo_video_responseFormatinfo formatinfoField;
+
+        /// <remarks/>
+        public string type
+        {
+            get
+            {
+                return this.typeField;
+            }
+            set
+            {
+                this.typeField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte enable_low
+        {
+            get
+            {
+                return this.enable_lowField;
+            }
+            set
+            {
+                this.enable_lowField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte enable_mid
+        {
+            get
+            {
+                return this.enable_midField;
+            }
+            set
+            {
+                this.enable_midField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte enable_org
+        {
+            get
+            {
+                return this.enable_orgField;
+            }
+            set
+            {
+                this.enable_orgField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte commentable
+        {
+            get
+            {
+                return this.commentableField;
+            }
+            set
+            {
+                this.commentableField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte comment_type
+        {
+            get
+            {
+                return this.comment_typeField;
+            }
+            set
+            {
+                this.comment_typeField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte video_priority
+        {
+            get
+            {
+                return this.video_priorityField;
+            }
+            set
+            {
+                this.video_priorityField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte allow_range
+        {
+            get
+            {
+                return this.allow_rangeField;
+            }
+            set
+            {
+                this.allow_rangeField = value;
+            }
+        }
+
+        /// <remarks/>
+        public nicovideo_video_responseWatch watch
+        {
+            get
+            {
+                return this.watchField;
+            }
+            set
+            {
+                this.watchField = value;
+            }
+        }
+
+        /// <remarks/>
+        public nicovideo_video_responseFormatinfo formatinfo
+        {
+            get
+            {
+                return this.formatinfoField;
+            }
+            set
+            {
+                this.formatinfoField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class nicovideo_video_responseWatch
+    {
+
+        private string idField;
+
+        private string modeField;
+
+        private string deviceField;
+
+        private string playlist_tokenField;
+
+        /// <remarks/>
+        public string id
+        {
+            get
+            {
+                return this.idField;
+            }
+            set
+            {
+                this.idField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string mode
+        {
+            get
+            {
+                return this.modeField;
+            }
+            set
+            {
+                this.modeField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string device
+        {
+            get
+            {
+                return this.deviceField;
+            }
+            set
+            {
+                this.deviceField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string playlist_token
+        {
+            get
+            {
+                return this.playlist_tokenField;
+            }
+            set
+            {
+                this.playlist_tokenField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class nicovideo_video_responseFormatinfo
+    {
+
+        private ushort widthField;
+
+        private ushort heightField;
+
+        private byte h264_profileField;
+
+        private byte h264_levelField;
+
+        private byte framerateField;
+
+        /// <remarks/>
+        public ushort width
+        {
+            get
+            {
+                return this.widthField;
+            }
+            set
+            {
+                this.widthField = value;
+            }
+        }
+
+        /// <remarks/>
+        public ushort height
+        {
+            get
+            {
+                return this.heightField;
+            }
+            set
+            {
+                this.heightField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte h264_profile
+        {
+            get
+            {
+                return this.h264_profileField;
+            }
+            set
+            {
+                this.h264_profileField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte h264_level
+        {
+            get
+            {
+                return this.h264_levelField;
+            }
+            set
+            {
+                this.h264_levelField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte framerate
+        {
+            get
+            {
+                return this.framerateField;
+            }
+            set
+            {
+                this.framerateField = value;
+            }
+        }
+    }
+
 
 }

@@ -17,6 +17,8 @@ namespace NicoNico.Net.Entities.Video
         public List<string> SherlockTags { get; set; }
 
         public List<SherlockVideo> SherlockVideos { get; set; }
+
+        public List<TagInfo> Tags { get; set; }
     }
 
     public class SherlockVideo
@@ -35,11 +37,16 @@ namespace NicoNico.Net.Entities.Video
         public MyList MyList { get; set; }
     }
 
+    public class TagInfo
+    {
+        public string Tag { get; set; }
+
+        public string Area { get; set; }
+    }
+
     public class Video
     {
         public string Id { get; set; }
-
-        public string Tag { get; set; }
 
         public byte Deleted { get; set; }
 
