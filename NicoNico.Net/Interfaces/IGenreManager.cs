@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NicoNico.Net.Entities.Video;
+using NicoNico.Net.Entities.VideoType;
 
 namespace NicoNico.Net.Interfaces
 {

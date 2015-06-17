@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using NicoNico.Net.Entities.Video;
+using NicoNico.Net.Entities.VideoType;
 using NicoNico.Net.Entities.Web;
 using NicoNico.Net.Interfaces;
 using NicoNico.Net.Tools;
@@ -29,24 +30,15 @@ namespace NicoNico.Net.Managers
         public async Task<List<Groups>> GetGenreGroupsAsync(int @group = 1)
         {
             var result = await _webManager.GetData(new Uri(string.Format(EndPoints.GenreGroup, group)));
-            var xmlUserObject = result.ResultXml.ParseXml<nicovideo_genre_response>();
-            var groups = xmlUserObject.groups.Select(item => new Groups()
-            {
-                Group = item.@group, Keys = item.key.ToList(), Name = item.name
-            }).ToList();
-
-            return groups;
+            var entity = result.ResultXml.ParseXml<GroupEntity>();
+            return entity.Groups;
         }
 
         public async Task<List<Genre>> GetGenreListAsync()
         {
             var result = await _webManager.GetData(new Uri(string.Format(EndPoints.GenreList)));
-            var xmlUserObject = result.ResultXml.ParseXml<nicovideo_genre_response>();
-            var genres = xmlUserObject.genre.Select(item => new Genre()
-            {
-                Key = item.key, Tag = item.tag
-            }).ToList();
-            return genres;
+            var entity = result.ResultXml.ParseXml<GenreEntity>();
+            return entity.Genres;
         }
     }
 }

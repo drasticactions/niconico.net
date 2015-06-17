@@ -37,13 +37,7 @@ namespace NicoNico.Net.Managers
 
             try
             {
-                var xmlUserObject = result.ResultXml.ParseXml<nicovideo_user_response>();
-                return new UserLoginSession()
-                {
-                    Expire = xmlUserObject.expire,
-                    UserId = xmlUserObject.user_id,
-                    SessionKey = xmlUserObject.session_key
-                };
+                return result.ResultXml.ParseXml<UserLoginSession>();
             }
             catch (Exception ex)
             {
@@ -62,13 +56,7 @@ namespace NicoNico.Net.Managers
 
             try
             {
-                var xmlUserObject = result.ResultXml.ParseXml<nicovideo_user_response>();
-                return new UserLoginSession()
-                {
-                    Expire = xmlUserObject.expire,
-                    UserId = xmlUserObject.user_id,
-                    SessionKey = xmlUserObject.session_key
-                };
+                return result.ResultXml.ParseXml<UserLoginSession>();
             }
             catch (Exception ex)
             {
@@ -99,13 +87,7 @@ namespace NicoNico.Net.Managers
 
             try
             {
-                var xmlUserObject = result.ResultXml.ParseXml<nicovideo_user_response>();
-                return new UserSession
-                {
-                    Id = xmlUserObject.user.id,
-                    Session = xmlUserObject.session,
-                    Status = xmlUserObject.status
-                };
+                return result.ResultXml.ParseXml<UserSession>();
             }
             catch (Exception ex)
             {
@@ -133,12 +115,7 @@ namespace NicoNico.Net.Managers
 
             try
             {
-                var xmlUserObject = result.ResultXml.ParseXml<nicovideo_user_response>();
-                return new UserSession
-                {
-                    Session = xmlUserObject.session,
-                    Status = xmlUserObject.status
-                };
+                return result.ResultXml.ParseXml<UserSession>();
             }
             catch (Exception ex)
             {

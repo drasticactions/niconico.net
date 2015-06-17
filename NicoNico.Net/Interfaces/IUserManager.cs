@@ -9,7 +9,7 @@ namespace NicoNico.Net.Interfaces
 {
     public interface IUserManager
     {
-        Task<User> GetCurrentUserInfoAsync();
+        Task<UserEntity> GetCurrentUserInfoAsync();
 
         Task GetCurrentUserPremiumInfoAsync(User user);
     }

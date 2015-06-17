@@ -25,7 +25,7 @@ namespace NicoNico.Net.Managers
         {
         }
 
-        public async Task<User> GetCurrentUserInfoAsync()
+        public async Task<UserEntity> GetCurrentUserInfoAsync()
         {
             var result = await _webManager.GetData(new Uri(EndPoints.UserCurrentInfo));
             if (!result.IsSuccess)
@@ -35,29 +35,7 @@ namespace NicoNico.Net.Managers
 
             try
             {
-                var xmlUserObject = result.ResultXml.ParseXml<nicovideo_user_response>();
-                var vitaOption = new VitaOption();
-                if (xmlUserObject.vita_option != null)
-                {
-                    vitaOption.SimpleRegisterProfile = xmlUserObject.vita_option.simple_register_profile;
-                    vitaOption.UserSecret = xmlUserObject.vita_option.user_secret;
-                }
-
-                return new User()
-                {
-                    Id = xmlUserObject.user.id,
-                    MobileMail = xmlUserObject.user.mobile_mail,
-                    Nickname = xmlUserObject.user.nickname,
-                    Prefecture = xmlUserObject.user.prefecture,
-                    Birthday = xmlUserObject.user.birthday,
-                    Sex = xmlUserObject.user.sex,
-                    Country = xmlUserObject.user.country,
-                    Language = xmlUserObject.user.language,
-                    CreateTime = xmlUserObject.user.create_time,
-                    UpdateTime = xmlUserObject.user.update_time,
-                    ThumbnailUrl = xmlUserObject.user.thumbnail_url,
-                    VitaOption = vitaOption
-                };
+                return result.ResultXml.ParseXml<UserEntity>();
             }
             catch (Exception ex)
             {
@@ -75,14 +53,8 @@ namespace NicoNico.Net.Managers
 
             try
             {
-                var xmlUserObject = result.ResultXml.ParseXml<nicovideo_user_response>();
-                var premium = new Premium()
-                {
-                    ExpireTime = xmlUserObject.expire_time,
-                    Purchaseable = xmlUserObject.purchasable,
-                    IsPremium = xmlUserObject.premium
-                };
-                user.Premium = premium;
+                var xmlUserObject = result.ResultXml.ParseXml<Premium>();
+                user.Premium = xmlUserObject;
             }
             catch (Exception ex)
             {

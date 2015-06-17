@@ -40,12 +40,10 @@
     <Compile Include="Entities\User\User.cs" />
     <Compile Include="Entities\User\UserLoginSession.cs" />
     <Compile Include="Entities\User\UserSession.cs" />
-    <Compile Include="Entities\Video\Genre.cs" />
-    <Compile Include="Entities\Video\Groups.cs" />
+    <Compile Include="Entities\VideoType\Genre.cs" />
+    <Compile Include="Entities\VideoType\Groups.cs" />
+    <Compile Include="Entities\Video\VideoPlayback.cs" />
     <Compile Include="Entities\Video\Videos.cs" />
-    <Compile Include="Entities\Web\nicovideo_genre_response.cs" />
-    <Compile Include="Entities\Web\nicovideo_user_response.cs" />
-    <Compile Include="Entities\Web\nicovideo_video_response.cs" />
     <Compile Include="Entities\Web\Result.cs" />
     <Compile Include="Interfaces\IAuthenticationManager.cs" />
     <Compile Include="Interfaces\IGenreManager.cs" />
