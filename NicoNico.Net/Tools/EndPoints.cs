@@ -72,5 +72,7 @@ namespace NicoNico.Net.Tools
         public const string MyListGroup = Base + "/nicoapi/v1/mylistgroup.get?dummy=1434461475";
 
         public const string ThumbInfo = "http://ext.nicovideo.jp/api/getthumbinfo/{0}";
+
+        public const string VideoFlv = "http://flapi.nicovideo.jp/api/getflv?device={0}&eco={1}&v={2}";
     }
 }

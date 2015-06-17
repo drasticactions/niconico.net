@@ -67,5 +67,58 @@ namespace NicoNico.Net.Managers
             var result = await _webManager.GetData(new Uri(string.Format(EndPoints.VideoPlay, videoId)));
             return result.ResultXml.ParseXml<VideoPlayback>();
         }
+
+        public async Task<VideoFlv> GetVideoFlvAsync(string videoId, string device = "metro", int eco = 5)
+        {
+            var result = await _webManager.GetData(new Uri(string.Format(EndPoints.VideoFlv, device, eco, videoId)));
+            var querystring = HttpUtility.ParseQueryString(result.ResultXml);
+            var videoFlv = new VideoFlv();
+            foreach (var item in querystring)
+            {
+                switch (item.Key)
+                {
+                    case "thread_id":
+                        videoFlv.Id = Convert.ToUInt32(item.Value);
+                        break;
+                    case "l":
+                        videoFlv.L = Convert.ToInt32(item.Value);
+                        break;
+                    case "url":
+                        videoFlv.Url = item.Value;
+                        break;
+                    case "ms":
+                        videoFlv.Ms = item.Value;
+                        break;
+                    case "ms_sub":
+                        videoFlv.MsSub = item.Value;
+                        break;
+                    case "is_premium":
+                        videoFlv.IsPremium = Convert.ToByte(item.Value);
+                        break;
+                    case "nickname":
+                        videoFlv.Nickname = item.Value;
+                        break;
+                    case "time":
+                        videoFlv.Time = Convert.ToInt64(item.Value);
+                        break;
+                    case "done":
+                        videoFlv.Done = Boolean.Parse(item.Value);
+                        break;
+                    case "ng_rv":
+                        videoFlv.NgRv = Convert.ToByte(item.Value);
+                        break;
+                    case "hms":
+                        videoFlv.Hms = item.Value;
+                        break;
+                    case "hmsp":
+                        videoFlv.Hmsp = Convert.ToInt32(item.Value);
+                        break;
+                    case "hmstk":
+                        videoFlv.Hmstk = item.Value;
+                        break;
+                }
+            }
+            return videoFlv;
+        }
     }
 }

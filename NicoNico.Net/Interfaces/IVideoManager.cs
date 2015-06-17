@@ -27,5 +27,7 @@ namespace NicoNico.Net.Interfaces
         Task<Videos> GetVideoInfoAsync(string[] videoIsArray);
 
         Task<VideoPlayback> GetVideoPlaybackInfoAsync(string videoId);
+
+        Task<VideoFlv> GetVideoFlvAsync(string videoId, string device = "metro", int eco = 5);
     }
 }
