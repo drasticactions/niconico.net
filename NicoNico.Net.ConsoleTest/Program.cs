@@ -56,21 +56,27 @@ namespace NicoNico.Net.ConsoleTest
             var test = await authManager.ExtendUserSessionAsync();
 
             //var genreManager = new GenreManager(cookieContainer, session.Session);
-            //var test2 = await genreManager.GetGenreListAsync();
+            //var test3 = await genreManager.GetGenreListAsync();
+            //var test4 = await genreManager.GetGenreGroupsAsync();
 
             //var videoManager = new VideoManager(cookieContainer, session.Session);
-            //var test2 = await videoManager.GetVideoSherlockAsync();
+            //var test5 = await videoManager.GetDefListAsync(0, 10);
+            //var test2 = await videoManager.GetVideoInfoAsync(new string[] { "sm26238346", "sm9" });
+
+            //var test6 = await videoManager.GetVideoInfoAsync("sm26238346");
+            //var thumbManager = new ThumbManager(cookieContainer, session.Session);
+            //var test7 = await thumbManager.GetThumbInfoAsync("sm26156154");
 
             var userManager = new UserManager(cookieContainer, session.Session);
             var user = await userManager.GetCurrentUserInfoAsync();
-            await userManager.GetCurrentUserPremiumInfoAsync(user);
+            await userManager.GetCurrentUserPremiumInfoAsync(user.User);
 
             Console.WriteLine("");
-            Console.WriteLine("Nickname: " + user.Nickname);
-            Console.WriteLine("Country: " + user.Country);
-            Console.WriteLine("Prefecture: " + user.Prefecture);
-            Console.WriteLine("Sex: " + user.Sex);
-            Console.WriteLine("Thumbnail: " + user.ThumbnailUrl);
+            Console.WriteLine("Nickname: " + user.User.Nickname);
+            Console.WriteLine("Country: " + user.User.Country);
+            Console.WriteLine("Prefecture: " + user.User.Prefecture);
+            Console.WriteLine("Sex: " + user.User.Sex);
+            Console.WriteLine("Thumbnail: " + user.User.ThumbnailUrl);
             Console.WriteLine("Push any key to exit");
             Console.ReadKey();
         }
