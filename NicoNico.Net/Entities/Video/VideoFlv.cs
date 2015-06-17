@@ -16,6 +16,8 @@ namespace NicoNico.Net.Entities.Video
 
         public string Ms { get; set; }
 
+        public int ApiChannel { get; set; }
+
         public string MsSub { get; set; }
 
         public byte IsPremium { get; set; }

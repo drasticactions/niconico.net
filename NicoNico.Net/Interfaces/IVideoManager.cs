@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NicoNico.Net.Entities.Message;
 using NicoNico.Net.Entities.Video;
 
 namespace NicoNico.Net.Interfaces
@@ -29,5 +30,7 @@ namespace NicoNico.Net.Interfaces
         Task<VideoPlayback> GetVideoPlaybackInfoAsync(string videoId);
 
         Task<VideoFlv> GetVideoFlvAsync(string videoId, string device = "metro", int eco = 5);
+
+        Task<List<MessageEntity>> GetVideoMessageEntityAsync(string threadId, int apiChannel, int resFrom = -100);
     }
 }

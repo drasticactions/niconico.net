@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using NicoNico.Net.Entities.Message;
 using NicoNico.Net.Entities.Video;
 using NicoNico.Net.Entities.Web;
 using NicoNico.Net.Interfaces;
@@ -88,6 +91,7 @@ namespace NicoNico.Net.Managers
                         break;
                     case "ms":
                         videoFlv.Ms = item.Value;
+                        videoFlv.ApiChannel = ApiChannelParser(item.Value);
                         break;
                     case "ms_sub":
                         videoFlv.MsSub = item.Value;
@@ -119,6 +123,35 @@ namespace NicoNico.Net.Managers
                 }
             }
             return videoFlv;
+        }
+
+        public async Task<List<MessageEntity>> GetVideoMessageEntityAsync(string threadId, int apiChannel, int resFrom = -100)
+        {
+            var result = await _webManager.GetData(new Uri(string.Format(EndPoints.Message, threadId, resFrom, apiChannel)));
+            try
+            {
+                return JsonConvert.DeserializeObject<List<MessageEntity>>(result.ResultXml);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to parse messages, check the ApiChannel");
+            }
+        }
+
+        private int ApiChannelParser(string url)
+        {
+            var re1 = ".*?"; // Non-greedy match on filler
+            var re2 = "(\\d+)";  // Integer Number 1
+
+            var r = new Regex(re1 + re2, RegexOptions.IgnoreCase | RegexOptions.Singleline);
+            var m = r.Match(url);
+            if (m.Success)
+            {
+                string int1 = m.Groups[1].ToString();
+                return Convert.ToInt32(int1);
+            }
+
+            return 0;
         }
     }
 }
