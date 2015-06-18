@@ -47,7 +47,7 @@ if (videoInfo != null)
   var messages = await videoManager.GetVideoMessageEntityAsync(videoInfo.Thread.Id.ToString(), videoPlay.ApiChannel);
   Console.WriteLine(videoPlay.Url);
 }
-```cs
+```
 
 Here we instantiate the Video Manager with the cookies and session key we got from the above commands. We then get the first 10 recently watched videos, select the first one from the list, and using the videos ID we can get the streaming video URL.
 
