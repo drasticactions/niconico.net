@@ -37,7 +37,12 @@ namespace NicoNico.Net.Managers
 
             try
             {
-                return result.ResultXml.ParseXml<UserLoginSession>();
+                var user = result.ResultXml.ParseXml<UserLoginSession>();
+                if (user.UserId <= 0)
+                {
+                    throw new Exception("Failed to Login: " + result.ResultXml);
+                }
+                return user;
             }
             catch (Exception ex)
             {
@@ -56,7 +61,12 @@ namespace NicoNico.Net.Managers
 
             try
             {
-                return result.ResultXml.ParseXml<UserLoginSession>();
+                var user = result.ResultXml.ParseXml<UserLoginSession>();
+                if (user.UserId <= 0)
+                {
+                    throw new Exception("Failed to Login: " + result.ResultXml);
+                }
+                return user;
             }
             catch (Exception ex)
             {
