@@ -45,6 +45,7 @@
     <Compile Include="Entities\Message\NumClick.cs" />
     <Compile Include="Entities\Message\Thread.cs" />
     <Compile Include="Entities\Message\ViewCounter.cs" />
+    <Compile Include="Entities\Search\Suggestion.cs" />
     <Compile Include="Entities\User\User.cs" />
     <Compile Include="Entities\User\UserLoginSession.cs" />
     <Compile Include="Entities\User\UserSession.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Interfaces\IAuthenticationManager.cs" />
     <Compile Include="Interfaces\IGenreManager.cs" />
     <Compile Include="Interfaces\ILiveVideoManager.cs" />
+    <Compile Include="Interfaces\ISearchManager.cs" />
     <Compile Include="Interfaces\IThumbManager.cs" />
     <Compile Include="Interfaces\IUserManager.cs" />
     <Compile Include="Interfaces\IVideoManager.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="Managers\AuthenticationManager.cs" />
     <Compile Include="Managers\GenreManager.cs" />
     <Compile Include="Managers\LiveVideoManager.cs" />
+    <Compile Include="Managers\SearchManager.cs" />
     <Compile Include="Managers\ThumbManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Managers\VideoManager.cs" />
