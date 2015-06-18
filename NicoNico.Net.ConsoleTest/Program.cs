@@ -59,6 +59,10 @@ namespace NicoNico.Net.ConsoleTest
             //var test3 = await genreManager.GetGenreListAsync();
             //var test4 = await genreManager.GetGenreGroupsAsync();
 
+            var liveVideoManager = new LiveVideoManager(cookieContainer, session.Session);
+            var test10 = await liveVideoManager.GetComingSoonListAsync();
+            var test11 = await liveVideoManager.GetOnAirListAsync();
+
             var videoManager = new VideoManager(cookieContainer, session.Session);
             //var test5 = await videoManager.GetDefListAsync(0, 10);
             //var test2 = await videoManager.GetVideoInfoAsync(new string[] { "sm26238346", "sm9" });

@@ -34,6 +34,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entities\LiveVideo\Community.cs" />
+    <Compile Include="Entities\LiveVideo\LiveVideo.cs" />
+    <Compile Include="Entities\LiveVideo\NicoliveVideoResponse.cs" />
+    <Compile Include="Entities\LiveVideo\Video.cs" />
+    <Compile Include="Entities\LiveVideo\VideoInfo.cs" />
     <Compile Include="Entities\Message\Chat.cs" />
     <Compile Include="Entities\Message\Leaf.cs" />
     <Compile Include="Entities\Message\MessageEntity.cs" />
@@ -52,12 +57,14 @@
     <Compile Include="Entities\Web\Result.cs" />
     <Compile Include="Interfaces\IAuthenticationManager.cs" />
     <Compile Include="Interfaces\IGenreManager.cs" />
+    <Compile Include="Interfaces\ILiveVideoManager.cs" />
     <Compile Include="Interfaces\IThumbManager.cs" />
     <Compile Include="Interfaces\IUserManager.cs" />
     <Compile Include="Interfaces\IVideoManager.cs" />
     <Compile Include="Interfaces\IWebManager.cs" />
     <Compile Include="Managers\AuthenticationManager.cs" />
     <Compile Include="Managers\GenreManager.cs" />
+    <Compile Include="Managers\LiveVideoManager.cs" />
     <Compile Include="Managers\ThumbManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Managers\VideoManager.cs" />

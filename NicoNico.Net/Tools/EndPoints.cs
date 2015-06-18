@@ -67,6 +67,12 @@ namespace NicoNico.Net.Tools
 
         public const string VideoArray = Base + "/nicoapi/v1/video.array?dummy=1434461473&v={0}";
 
+        public const string OnAirList =
+            Base + "/liveapi/v1/video.onairlist?from={0}&limit={1}&order={2}&pt={3}&sort={4}&__format=json";
+
+        public const string ComingSoon =
+           Base + "/liveapi/v1/video.comingsoon?from={0}&limit={1}&pt={2}&__format=json";
+
         #endregion
 
         public const string MyListGroup = Base + "/nicoapi/v1/mylistgroup.get?dummy=1434461475";
