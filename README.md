@@ -9,7 +9,7 @@ This library is an attempt to abstract away the insane nature of their API and c
 
 ### Getting Started
 
-NicoNico.net is a Profile 111 PCL. It _should_ just work in most projects, including WinRT, Xamarin.iOS and Xamarin.Android, and .Net 4.5+. Currently the only dependency is Json.Net.
+NicoNico.net is .NET Standard 2.0. Currently the only dependency is Json.Net.
 
 You can download the Nuget version of the package [here](https://www.nuget.org/packages/NicoNico.Net)
 
