@@ -8,7 +8,7 @@ namespace NicoNico.Net.Tools
 {
     public static class EndPoints
     {
-        private const string Base = "http://api.ce.nicovideo.jp";
+        private const string Base = "https://api.ce.nicovideo.jp";
 
         #region Login
 
@@ -77,12 +77,12 @@ namespace NicoNico.Net.Tools
 
         public const string MyListGroup = Base + "/nicoapi/v1/mylistgroup.get?dummy=1434461475";
 
-        public const string ThumbInfo = "http://ext.nicovideo.jp/api/getthumbinfo/{0}";
+        public const string ThumbInfo = "https://ext.nicovideo.jp/api/getthumbinfo/{0}";
 
-        public const string VideoFlv = "http://flapi.nicovideo.jp/api/getflv?device={0}&eco={1}&v={2}";
+        public const string VideoFlv = "https://flapi.nicovideo.jp/api/getflv?device={0}&eco={1}&v={2}";
 
-        public const string SearchSuggestion = "http://search.nicovideo.jp/suggestion/complete/";
+        public const string SearchSuggestion = "https://sug.search.nicovideo.jp/suggestion/complete/";
 
-        public const string Message = "http://msg.nicovideo.jp/{2}/api.json/thread?version=20090904&thread={0}&res_from={1}";
+        public const string Message = "https://msg.nicovideo.jp/{2}/api.json/thread?version=20090904&thread={0}&res_from={1}";
     }
 }

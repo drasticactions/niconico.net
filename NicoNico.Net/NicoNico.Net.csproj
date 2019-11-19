@@ -1,98 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2B867E85-2924-42AF-96D9-3CED9234E7B2}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NicoNico.Net</RootNamespace>
-    <AssemblyName>NicoNico.Net</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>A C# Library for accessing NicoNico Douga</Description>
+    <Authors>drasticactions</Authors>
+    <PackageProjectUrl>https://github.com/drasticactions/niconico.net</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageTags>NicoNico, NicoVideo</PackageTags>
+    <PackageReleaseNotes>- Now works with .NET Standard 2.0!</PackageReleaseNotes>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Compile Include="Entities\LiveVideo\Community.cs" />
-    <Compile Include="Entities\LiveVideo\LiveVideo.cs" />
-    <Compile Include="Entities\LiveVideo\NicoliveVideoResponse.cs" />
-    <Compile Include="Entities\LiveVideo\Video.cs" />
-    <Compile Include="Entities\LiveVideo\VideoInfo.cs" />
-    <Compile Include="Entities\Message\Chat.cs" />
-    <Compile Include="Entities\Message\Leaf.cs" />
-    <Compile Include="Entities\Message\MessageEntity.cs" />
-    <Compile Include="Entities\Message\NumClick.cs" />
-    <Compile Include="Entities\Message\Thread.cs" />
-    <Compile Include="Entities\Message\ViewCounter.cs" />
-    <Compile Include="Entities\Search\Suggestion.cs" />
-    <Compile Include="Entities\User\User.cs" />
-    <Compile Include="Entities\User\UserLoginSession.cs" />
-    <Compile Include="Entities\User\UserSession.cs" />
-    <Compile Include="Entities\VideoType\Genre.cs" />
-    <Compile Include="Entities\VideoType\Groups.cs" />
-    <Compile Include="Entities\Video\Thumb.cs" />
-    <Compile Include="Entities\Video\VideoFlv.cs" />
-    <Compile Include="Entities\Video\VideoPlayback.cs" />
-    <Compile Include="Entities\Video\Videos.cs" />
-    <Compile Include="Entities\Web\Result.cs" />
-    <Compile Include="Interfaces\IAuthenticationManager.cs" />
-    <Compile Include="Interfaces\IGenreManager.cs" />
-    <Compile Include="Interfaces\ILiveVideoManager.cs" />
-    <Compile Include="Interfaces\ISearchManager.cs" />
-    <Compile Include="Interfaces\IThumbManager.cs" />
-    <Compile Include="Interfaces\IUserManager.cs" />
-    <Compile Include="Interfaces\IVideoManager.cs" />
-    <Compile Include="Interfaces\IWebManager.cs" />
-    <Compile Include="Managers\AuthenticationManager.cs" />
-    <Compile Include="Managers\GenreManager.cs" />
-    <Compile Include="Managers\LiveVideoManager.cs" />
-    <Compile Include="Managers\SearchManager.cs" />
-    <Compile Include="Managers\ThumbManager.cs" />
-    <Compile Include="Managers\UserManager.cs" />
-    <Compile Include="Managers\VideoManager.cs" />
-    <Compile Include="Managers\WebManager.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tools\Constants.cs" />
-    <Compile Include="Tools\EndPoints.cs" />
-    <Compile Include="Tools\HttpUtility.cs" />
-    <Compile Include="Tools\ParseHelpers.cs" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
+
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <None Include="..\..\GiphyDotNet\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
